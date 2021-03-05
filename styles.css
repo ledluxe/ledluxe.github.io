@@ -58,6 +58,31 @@ b {
 	cursor: pointer;
 }
 
+.button1 {
+	display: block;
+	margin: 5px auto;
+	margin-bottom: 20px;
+	width: 350px;
+	height: 80px;
+	border: none;
+	-webkit-border-radius: 40px;
+	-moz-border-radius: 40px;
+	border-radius: 40px;
+	background: #4671D5;
+	-webkit-box-shadow: 0 0 0 10px #4671D559;
+	-moz-box-shadow: 0 0 0 10px #4671D578;
+	box-shadow: 0 0 0 10px #4671D52b;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 80px;
+	color: #fff;
+	text-decoration: none;
+	text-align: center;
+	cursor: pointer;
+}
+
+
 /* section */
 
 section {
@@ -2404,7 +2429,10 @@ select::-ms-expand {
 	font-weight: 700;
 	text-transform: uppercase;
 }
-
+.social {
+	text-align: center;
+	
+  }
 /* footer */
 
 .footer_section {
