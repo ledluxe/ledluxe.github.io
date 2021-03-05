@@ -57,7 +57,7 @@ $(document).ready(function () {
     }
     return true;
   }
-  function sendMessage({ name, phone }) {
+  async function sendMessage({ name, phone }) {
     const BOT_API_KEY = "1606647901:AAFykXDStBiPeeMBR6LmHA9HGvCmQOK38Dc";
     const CHANNEL_ID = "638926333";
     const text = `Name: ${name} \t
@@ -74,9 +74,8 @@ $(document).ready(function () {
       if (xhr.status != 200) {
         alert("Ошыбка! Попробуйте позже");
       } else {
-        alert("Заказ успешно создан!\n" + "Наш менеджер свяжеться с Вами!");
-        localStorage.removeItem("tcart");
-        location.reload();
+        alert("Подтвердите заказ!");
+        window.location.href = `./thankYouPage.html?name=${name}&phone=${phone}`;
       }
     };
     xhr.onerror = function () {
@@ -86,8 +85,9 @@ $(document).ready(function () {
 
   /* validate form */
 
-  $(".order_form").submit(function (event) {
+  $(".order_form").submit( async function (event) {
     event.preventDefault();
+    event.stopPropagation();
     const name = $(this).find("input[name='name']").val();
     const phone = $(this).find("input[name='phone']").val().trim();
 
@@ -105,13 +105,21 @@ $(document).ready(function () {
       return false;
     }
     if (validatePhone(phone)) {
-      sendMessage({name,phone});
+      await sendMessage({name,phone});
+      
+     
+
     } else {
       alert(
         "Вы ввели неправильный номер телефона!\n" +
           "Введите в формате +380 00 000 0000\n" +
           "Или 099 000 0000"
       );
+       $(this).find("input[name='phone']").focus();
     }
   });
+ 
+    
+  
+ 
 });
