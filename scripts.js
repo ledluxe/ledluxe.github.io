@@ -59,7 +59,7 @@ $(document).ready(function () {
   }
   async function sendMessage({ name, phone }) {
     const BOT_API_KEY = "1606647901:AAFykXDStBiPeeMBR6LmHA9HGvCmQOK38Dc";
-    const CHANNEL_ID = "1001452408584";
+    const CHANNEL_ID = "-1001452408584";
     const text = `Name: ${name} \t
 		\n TEL: ${phone} `;
 
